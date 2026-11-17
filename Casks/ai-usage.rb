@@ -20,7 +20,7 @@ cask "ai-usage" do
 
   # Restart so an upgrade runs the new build.
   postflight do
-    system_command "/usr/bin/killall", args: ["AI Usage"], must_succeed: false
+    system_command "/usr/bin/killall", args: ["AIUsage"], must_succeed: false
     system_command "/usr/bin/open", args: ["#{appdir}/AI Usage.app"]
   end
 
