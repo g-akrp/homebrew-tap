@@ -21,7 +21,8 @@ cask "ai-usage" do
   # Restart so an upgrade runs the new build.
   postflight do
     system_command "/usr/bin/killall", args: ["AIUsage"], must_succeed: false
-    system_command "/usr/bin/open", args: ["#{appdir}/AI Usage.app"]
+    system_command "/bin/sleep", args: ["2"]
+    system_command "/usr/bin/open", args: ["#{appdir}/AI Usage.app"], must_succeed: false
   end
 
   zap trash: "~/Library/Preferences/local.ai-usage.plist"
