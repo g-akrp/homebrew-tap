@@ -16,9 +16,12 @@ cask "ai-usage" do
     run "/usr/bin/xattr",
         args:           ["-dr", "com.apple.quarantine", "{{appdir}}/AI Usage.app"],
         writable_paths: ["{{appdir}}/AI Usage.app"]
-    # Restart so an upgrade runs the new build; killall fails when the app is not running.
-    run "/bin/sh",
-        args: ["-c", "/usr/bin/killall 'AI Usage'; /usr/bin/open '{{appdir}}/AI Usage.app'"]
+  end
+
+  # Restart so an upgrade runs the new build.
+  postflight do
+    system_command "/usr/bin/killall", args: ["AI Usage"], must_succeed: false
+    system_command "/usr/bin/open", args: ["#{appdir}/AI Usage.app"]
   end
 
   zap trash: "~/Library/Preferences/local.ai-usage.plist"
