@@ -18,5 +18,12 @@ cask "ai-usage" do
         writable_paths: ["{{appdir}}/AI Usage.app"]
   end
 
+  # Restart so an upgrade runs the new build.
+  postflight do
+    system_command "/usr/bin/killall", args: ["AIUsage"], must_succeed: false
+    system_command "/bin/sleep", args: ["2"]
+    system_command "/usr/bin/open", args: ["#{appdir}/AI Usage.app"], must_succeed: false
+  end
+
   zap trash: "~/Library/Preferences/local.ai-usage.plist"
 end
