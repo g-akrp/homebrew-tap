@@ -1,6 +1,6 @@
 cask "ai-usage" do
-  version "1.16.0"
-  sha256 "7dec8123c6cf1667def4673492a51d928bfdb4fdcf698f87b07bb7f122e73021"
+  version "1.17.0"
+  sha256 "246f756d787bedfe78acf89b78e34409e34fc32f78e0cc78711a97fe0eb80420"
 
   url "https://github.com/g-akrp/albert-ai-usage/releases/download/v#{version}/AIUsage-#{version}.dmg"
   name "AI Usage"
